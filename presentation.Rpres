@@ -1,0 +1,105 @@
+<style type="text/css">
+
+.reveal h3 { 
+    font-size: 100px;
+    color: #d34615;
+    border-style: solid;
+    border-color: #eeeeee;
+    background: #eeeeee;
+    border-width: 1px;
+    padding: 10px 50px 10px 50px;
+}
+
+#link {
+    color: #d34615;
+}
+
+#link a:link {
+    color: #d34615;
+}
+#link a:hover {
+    color: #5c2040;
+}
+
+.reveal pre code {
+  display: block; padding: 0.3em;
+  font-size: 1em;}
+  
+.section .reveal .state-background {
+    background: #eeeeee;}
+    
+.section .reveal h1 {
+    color: #d34615;
+    position: relative;
+    top: 4%;
+}
+    
+.section .reveal p {
+    color: black;}
+
+</style>
+
+
+Text entry predicting application
+========================================================
+author: avkch
+date: 15/05/2017
+autosize: true
+transition: rotate
+transition-speed: slow
+font-import: http://fonts.googleapis.com/css?family=Ubuntu
+font-family: 'Ubuntu'
+
+
+Introduction
+========================================================
+
+The aim of this presentation is to showcase the Text entry predicting application.
+This application designed as part of Coursera Data Science Specialization by Johns Hopkins University.
+
+The application is designed to predict and suggest 3 words to the user. The application will try to predict next word based on the previous words in the sentence and will update the prediction as the user start to type the new word. The current version is using English language.
+
+
+<div id = "link">
+<a href="https://avkch.shinyapps.io/type_predictor/" target="_blank">The application can be found here.</a>
+</div>
+Interface
+========================================================
+<div style = "margin-top: 10px; margin-bottom: 10px;">
+The interface of this application is very simple:
+</div>
+
+<div align="center">
+<img src="interface.png">
+</div>
+<div style = "margin-top: 0px; font-size:60%; line-height:1.2; text-align: justify;">
+You should type words in the text entry box, the application will predict the next word in the sentence.
+It is suggesting 3 possible words, to add a word from the suggested you can click on the word, pres <b>Num1</b>, <b>Num2</b> or <b>Num3</b> or pres <b>Alt+1</b>, <b>Alt+2</b> or <b>Alt+3</b>.
+Clicking on <b>[space]</b> button  or <b>space key</b> on the keyboard will add the word in the text entry box to the sentence. To remove the last letter from the word in the text entry box click <b>[<-back]</b> button or <b>backspace key</b> on the keyboard.
+If the text entry box is empty pressing <b>[<-back]</b> button or <b>backspace key</b> on the keyboard will remove the last word from the sentence.
+</div>
+
+Algorithm
+========================================================
+
+The prediction algorithm is using 3 different data frames to search for words: 1. most common words; 2. most common bigrams; 3. most common trigrams.
+
+All data frames are build using text entries from Twitter, Blogs and News
+<div style = "margin-top: 10px; font-size:70%; line-height:1.4; text-align: justify;"> 
+If no words in the result text are present the algorithm will use list of most common words for the prediction, if one word is present the algorithm will use the list of most common bigrams and will filter the most common bigrams with first word equal to the first word in the result text. If two or more words are present in the result text the algorimt will use list of most common trigrams.
+In case the algorithm cannot find match in the list of most common trigrams it will use the list of most common bigrams and if no match is found in that case the list of most common words will be used.
+</div>
+
+Main features
+========================================================
+ - Fast loading and prediction
+ - Real time update when new letter is typed in the type box
+ - Keyboard shortcuts
+ - Simple and easy to use
+ - Elegant design
+ 
+<div id = "link">
+<a href="https://avkch.shinyapps.io/type_predictor/" target="_blank">Try it yourself!</a>
+<div>
+
+
